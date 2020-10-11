@@ -16,9 +16,10 @@ function generatePassword() {
     var length = lengthPrompt(),
     charSetLower = "abcdefghijklmnopqrstuvwxyw",
     charSetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    numbers = 123456789,
-    retVal = "";
-    retValUp = "";
+    numberSet = 123456789,
+    retVal = "",
+    retValUp = "",
+    retValCom = "";
 
         // UpperCase Function
     var upperCaseF = function() {
@@ -30,10 +31,11 @@ function generatePassword() {
             }
             return retValUp;
         } else if (upCase === "NO" || upCase === "no" || upCase === "No" ){
-            retValUp === "";
+            retValUp === null;
             return retValUp;
         }  
     };
+
         // LowerCase Function
     var lowerCaseF = function() {
         // loop for lower case letters
@@ -44,12 +46,18 @@ function generatePassword() {
             }
         return retVal;
         } else if (lowCase === "NO" || lowCase === "no" || lowCase === "No") {
-            retVal === "";
+            retVal === null;
             return retVal;
         }
+    };
+        // combines lower and upper case
+    var alphabet = lowerCaseF() + upperCaseF();    
+        // randomly mixes lower and upper case
+    for (var i = 0, n = alphabet.length; i < length; ++i) {
+        retValCom += alphabet.charAt(Math.floor(Math.random() * n))
     }
-        // combines all functions
-    return lowerCaseF() + upperCaseF();
+        // returns mixed string
+    return retValCom;
 }
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -87,4 +95,18 @@ generateBtn.addEventListener("click", writePassword);
     if (retValUp === "A" || retValUp === "B" || retValUp === "C" || retValUp === "D" || retValUp === "E" || retValUp === "F" || retValUp === "G" || retValUp === "H" || retValUp === "I" || retValUp === "J" || retValUp === "K" 
     || retValUp === "L" || retValUp === "M" || retValUp === "N" || retValUp === "O" || retValUp === "P" || retValUp === "Q" || retValUp === "R" || retValUp === "S" || retValUp === "T" || retValUp === "U" || retValUp === "V" || 
     retValUp === "W" || retValUp === "X" || retValUp === "Y" || retValUp === "Z")
+    */
+
+
+    /*  
+        var combinedAlphabet = function() {
+        var alphabet = lowerCaseF() + upperCaseF();
+        if (upperCaseF() === "" && lowerCaseF() === "") {
+            for (var i = 0, n = alphabet.length; i < length; ++i) {
+                retValCom += alphabet.charAt(Math.floor(Math.random() * n))
+            }
+
+        return retValCom;
+        }
+    };
     */
