@@ -1,5 +1,7 @@
 
 function generatePassword() {
+
+   
         //accepts user input for length
     var lengthPrompt = function() {
         var length = prompt("How many characters do you want? You can choose any number between 8 & 128");
@@ -8,20 +10,30 @@ function generatePassword() {
             alert("Invalid answer. Try Again")
             return lengthPrompt();
         } else {
+            console.log(length);
             return length;
         }
     }
 
-    
-    if (generateBtn === "" ||  generateBtn === null || generateBtn <= 7 || generateBtn >= 129) {
-        window.alert("Invalid answer");
-        return generatePassword;
-    }
     var length = lengthPrompt(),
-        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-        retVal = "";
-    for (var i = 0, n = charset.length; i < length; ++i) {
-        retVal += charset.charAt(Math.floor(Math.random() * n));
+    charSetLower = "abcdefghijklmnopqrstuvwxyw",
+    charSetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    retVal = "";
+    retValUp = "";
+
+
+    var upCase = window.prompt("Would You like uppercase letters? Yes or No");
+    if (upCase === "YES" || upCase === "yes" || upCase === "Yes") {
+        for (var i = 0, n = charSetUpper.length; i < length; ++i) {
+            retValUp += charSetUpper.charAt(Math.floor(Math.random() * n))
+        }
+        console.log(retValUp);
+        return retValUp;
+    }
+    
+
+    for (var i = 0, n = charSetLower.length; i < length; ++i) {
+        retVal += charSetLower.charAt(Math.floor(Math.random() * n));
     }
     return retVal;
 }
@@ -40,4 +52,19 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// window.prompt("How many characters do you want? You can choose any number between 8 & 128");
+/*     var specCharPrompt = function() {
+        var charPrompt = prompt("Do you want Uppercase, Lowercase, Numbers, and/or special characters");
+            // if empty ask again
+        if (charPrompt === "" || charPrompt === null) {
+            alert("Invalid answer. Try Again")
+            return specCharPrompt();
+        }
+        var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        if (charPrompt === "uppercase" || charPrompt === "UPPERCASE" || charPrompt === "UpperCase") {
+            while (charPrompt) {
+                charPrompt += charSet[Math.floor(Math.random() * charSet)];
+            }
+            return charPrompt;
+        }
+        console.log(charPrompt());
+    } */
