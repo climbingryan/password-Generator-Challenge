@@ -16,7 +16,8 @@ function generatePassword() {
     var length = lengthPrompt(),
     charSetLower = "abcdefghijklmnopqrstuvwxyw",
     charSetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    numberSet = 123456789,
+    numberSet = "123456789",
+    retNum = null,
     retVal = "",
     retValUp = "",
     retValCom = "";
@@ -50,9 +51,23 @@ function generatePassword() {
             return retVal;
         }
     };
-        // combines lower and upper case
-    var alphabet = lowerCaseF() + upperCaseF();    
-        // randomly mixes lower and upper case
+
+    var numbersF = function() {
+        var numPrompt = window.prompt("Would you like numbers? Yes or No?");
+        if (numPrompt === "YES" || numPrompt === "yes" || numPrompt === "yes") {
+            for (var i = 0, n = numberSet.length; i < length; ++i) {
+                retNum += numberSet.charAt(Math.floor(Math.random() * n));
+            }
+            return retNum;
+        } else if (numPrompt === "NO" || numPrompt === "no" || numPrompt === "No") {
+            retNum === null;
+            return retNum;
+        }
+    }
+
+        // combines all functions
+    var alphabet = lowerCaseF() + upperCaseF() + numbersF();    
+        // randomly mixes alphabet
     for (var i = 0, n = alphabet.length; i < length; ++i) {
         retValCom += alphabet.charAt(Math.floor(Math.random() * n))
     }
