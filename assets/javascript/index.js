@@ -42,7 +42,7 @@ function generatePassword() {
         // LowerCase Function
     var lowerCaseF = function() {
         // loop for lower case letters
-        var lowCase = window.prompt("Would you like lowercase letter? Yes or No?");
+        var lowCase = window.prompt("Would you like lowercase letters? Yes or No?");
         if (lowCase === "YES" || lowCase === "yes" || lowCase === "Yes") {
             for (var i = 0, n = charSetLower.length; i < length; ++i) {
                 retVal += charSetLower.charAt(Math.floor(Math.random() * n));
@@ -80,7 +80,7 @@ function generatePassword() {
             retSpecial === null;
             return retSpecial;
         }
-    }
+    };
 
         // combines all functions
     var alphabet = lowerCaseF() + upperCaseF() + numbersF() + specialChar();    
