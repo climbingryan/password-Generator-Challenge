@@ -17,6 +17,8 @@ function generatePassword() {
     charSetLower = "abcdefghijklmnopqrstuvwxyw",
     charSetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     numberSet = "123456789",
+    specialSet = "!#$%&'()*+,-./:;/<=>?@[]^_`{|}~",
+    retSpecial = "",
     retNum = null,
     retVal = "",
     retValUp = "",
@@ -52,6 +54,7 @@ function generatePassword() {
         }
     };
 
+        // Numbers Function
     var numbersF = function() {
         var numPrompt = window.prompt("Would you like numbers? Yes or No?");
         if (numPrompt === "YES" || numPrompt === "yes" || numPrompt === "yes") {
@@ -63,10 +66,24 @@ function generatePassword() {
             retNum === null;
             return retNum;
         }
+    };
+
+        // Special Characters Funcion
+    var specialChar = function () {
+        var specialPrompt = window.prompt("Would you like special characters? Yes or No?");
+        if (specialPrompt === "YES" || specialPrompt === "yes" || specialPrompt === "Yes") {
+            for (var i = 0, n = specialSet.length; i < length; ++i) {
+                retSpecial += specialSet.charAt(Math.floor(Math.random() * n));
+            }
+            return retSpecial;
+        } else if (specialPrompt === "NO" || specialPrompt === "no" || specialPrompt === "No") {
+            retSpecial === null;
+            return retSpecial;
+        }
     }
 
         // combines all functions
-    var alphabet = lowerCaseF() + upperCaseF() + numbersF();    
+    var alphabet = lowerCaseF() + upperCaseF() + numbersF() + specialChar();    
         // randomly mixes alphabet
     for (var i = 0, n = alphabet.length; i < length; ++i) {
         retValCom += alphabet.charAt(Math.floor(Math.random() * n))
