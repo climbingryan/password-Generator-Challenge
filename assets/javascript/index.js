@@ -11,7 +11,7 @@ function generatePassword() {
             return length;
         }
     }
-    console.log(lengthPrompt());
+
     
     if (generateBtn === "" ||  generateBtn === null || generateBtn <= 7 || generateBtn >= 129) {
         window.alert("Invalid answer");
