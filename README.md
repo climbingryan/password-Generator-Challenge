@@ -7,4 +7,4 @@ A program that randomly generates a password based on inputs from the user. Acce
 [Link](https://climbingryan.github.io/password-Generator-Challenge/)
 
 ## Screenshot
-![Random password](./assets/password-challenge-screenshot)
+![password-challenge-screenshot](https://user-images.githubusercontent.com/15613846/95691026-8ad9aa80-0be1-11eb-8354-7399401c7c26.JPG)
